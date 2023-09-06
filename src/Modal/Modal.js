@@ -24,9 +24,17 @@ export default class Modal extends Component {
       this.props.onClose();
     }
   }
+
+  handleBackDropClick =(e)=>{
+
+    if(e.currentTarget===e.target){
+      this.props.onClose()
+    }
+
+  }
   render() {
     return createPortal(
-      <div className="Modal__backdrop">
+      <div className="Modal__backdrop" onClick={this.handleBackDropClick}>
         <div className="Modal__content">{this.props.children}</div>
       </div>,
       modalRoot
