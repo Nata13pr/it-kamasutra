@@ -8,8 +8,11 @@ import Filter from "./Filter/Filter";
 import Form from "./Form/Form";
 import Clock from "./Modal/Clock/Clock";
 import Modal from "./Modal/Modal";
+import Tabs from "./Tabs/Tabs";
 import TodoEditor from "./TodoEditor/TodoEditor";
 import TodoList from "./TodoList";
+import items from './tabs.json'
+
 
 // const colorPicker=[
 //   {label:'red',color:'#F44336'},
@@ -50,6 +53,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps,prevState){
     console.log('componentDidUpdate');
+ 
     if(this.state.todos!==prevState.todos){
       console.log("Обновилось");
 
@@ -140,29 +144,29 @@ class App extends Component {
 
     return (
       <>
-      {this.state.showModal && <Clock/>}
-      <button type='button' onClick={this.toggleModal}>Open timer</button>
+      {/* {this.state.showModal && <Clock/>}
+      <button type='button' onClick={this.toggleModal}>Open timer</button> */}
+<Tabs items={items} />
 
+      <button type='button' onClick={this.toggleModal}>Open modal</button>
 
-      {/* <button type='button' onClick={this.toggleModal}>Open modal</button> */}
-
-      {/* {this.state.showModal && (
+      {this.state.showModal && (
        <Modal onClose={this.toggleModal}>
         <h1>Context Modal-children</h1>
         <p>Lorem fdfgdfgdgdgdgdgsdfhdfhsdfhshsfghfghsfghsfghsfhgfsdghs</p>
         <button type="button" onClick={this.toggleModal}>Close</button>
-        </Modal>)} */}
+        </Modal>)}
       
-        <TodoEditor onSubmit={this.addTodo} />
-        <Filter value={this.state.filter} onChange={this.changeFilter} />
+        {/* <TodoEditor onSubmit={this.addTodo} />
+        <Filter value={this.state.filter} onChange={this.changeFilter} /> */}
 
-        <h1>Component state</h1>
+        {/* <h1>Component state</h1> */}
         {/* <Counter  initialValue={50}/> */}
         {/* <DropDown/> */}
         {/* <ColorPicker options={colorPicker}/> */}
 
 
-         <div>
+         {/* <div>
           <p>Total amount : {this.state.todos.length}</p>
           <p>Completed amount : {completedTodos}</p>
         </div>
@@ -171,7 +175,7 @@ class App extends Component {
           onDeleteTodo={this.deleteTodos}
           onToggleCompleted={this.onToggleCompleted}
         />
-        <Form onSubmit={this.formSubmitHandler} /> 
+        <Form onSubmit={this.formSubmitHandler} />  */}
       </>
     );
   }
